@@ -1,0 +1,51 @@
+creacion del cluster:
+minikube start --driver=hyperv
+
+despues de configurados los pods:
+kubectl apply -f nodejs-pod1.yaml
+kubectl apply -f nodejs-pod2.yaml
+
+Ver Clústeres Actuales:
+kubectl config get-contexts
+kubectl get svc
+
+Ver Información del cluster Actual
+kubectl config current-context
+
+eliminar pod
+kubectl delete pod nodejs-pod-1
+
+ver los errores:
+kubectl describe pod nodejs-pod-1
+
+ver los logs:
+kubectl logs nodejs-pod1
+
+docker
+docker build -t enma229/nodeapp .
+docker push enma229/pod1b:latest
+docker login 
+docker push nombre de la image
+
+orden:
+crear la imagen de manera local
+subir la imagen a docker hub 
+
+abrir minikube grafica
+minikube dashboard
+
+kubectl run pod1 --image=enma229/pod1b --port=3000 3000
+
+exponer el pod:
+kubectl expose pod nombre_pod --type=loadbalancer --port puerto --target puerto
+
+para obtener la direccion para acceder
+minikube service nombre_servicio
+
+kubectl describe pod pod1
+
+cargar imagen minikune
+minikube image load mi_imagen_local:latest
+
+para acceder al service:
+minikube service nombre_servicio
